@@ -1,1 +1,53 @@
-<p>productos works!</p>
+<section>
+    <div>
+      <h3>Productos</h3>
+      <p>Seleccione la subcategoria de productos que desea ver.</p>
+    </div>
+    <div id="selectSubCategoria">
+      <h4>Categorias</h4>
+      <mat-form-field appearance="fill" id="menuFiltro">
+        <mat-label>Elegir</mat-label>
+        <mat-select (selectionChange)="filtrarPorSubcategoria($event)">
+          <mat-option value="0">Sin categorias</mat-option>
+          <mat-option
+            *ngFor="let subCat of listaSubcategorias"
+            [value]="subCat.id"
+            >{{ subCat.nombre }}</mat-option
+          >
+        </mat-select>
+        <mat-error>You must make a selection</mat-error>
+        <mat-error> Your selection is invalid </mat-error>
+      </mat-form-field>
+    </div>
+  </section>
+  <div>
+    <ul>
+      <li *ngFor="let producto of listaProductosFiltrados">
+        <mat-card class="card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ producto.nombre }}</mat-card-title>
+            <mat-card-subtitle>{{ producto.id_subcategoria }}</mat-card-subtitle>
+          </mat-card-header>
+          <img
+            mat-card-image
+            [src]="obtenerImagen(producto.imagenes[0].nombre)"
+            [alt]="producto.nombre"
+          />
+          <mat-card-content>
+            <p>${{ producto.precio }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="agregarAlCarrito()"
+            >
+              Sumar al carrito
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </li>
+    </ul>
+  </div>
+  
