@@ -1,1 +1,41 @@
-<p>registro works!</p>
+<section>
+    <h2>Crear cuenta</h2>
+    <p>Complete el siguiente formulario con sus datos peronales para registrarse.</p>
+    <form novalidate (submit)="registrarUsuario()" #formulario="ngForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" name="nombre" [(ngModel)]="nuevoUsuario.nombre" required minlength="3" #nombre="ngModel">
+                <mat-error *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">El nombre es requerido y debe tener al menos 3 caracteres</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input matInput type="text" name="apellido" [(ngModel)]="nuevoUsuario.apellido" required minlength="3" #apellido="ngModel">
+                <mat-error *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">El apellido es requerido y debe tener al menos 3 caracteres</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Dni</mat-label>
+                <input matInput type="number" name="dni" [(ngModel)]="nuevoUsuario.dni">
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Mail</mat-label>
+                <input matInput type="email" name="email" [(ngModel)]="nuevoUsuario.email">
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Telefono</mat-label>
+                <input matInput type="number" name="telefono" [(ngModel)]="nuevoUsuario.telefono">
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" name="contrasena" [(ngModel)]="nuevoUsuario.contrasena" required minlength="6" #contrasena="ngModel">
+                <mat-error *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">La contraseña es requerida y debe tener al menos 6 caracteres</mat-error>
+            </mat-form-field>
+            
+        <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid" id="botonRegistro">Registrarse</button>
+        
+    </form>
+</section>

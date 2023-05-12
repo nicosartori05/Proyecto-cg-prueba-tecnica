@@ -9,17 +9,15 @@
       </h1>
       <span class="example-spacer"></span>
   
-      <button mat-button routerLink="registro">Registro</button>
-  
-      <button mat-button routerLink="login">Iniciar sesion</button>
-      <button mat-button routerLink="productos">Productos</button>
-      <button mat-button>
-        <div class="demo-section">
-          <mat-icon matBadge="" matBadgeColor="warn">shopping_cart</mat-icon>
-            <span class="cdk-visually-hidden">
-            </span>
-        </div>
-      </button>
+      <button mat-button routerLink="registro" *ngIf="!getflag()">Registro</button>
+      <button mat-button routerLink="login" *ngIf="!getflag()">Iniciar sesion</button>  
+      <button mat-button routerLink="login" *ngIf="getflag()" (click)="cerrarSesion()">Cerrar Sesion</button>
+      <button mat-button routerLink="productos" *ngIf="getflag()">Productos</button>
+      <div class="demo-section" *ngIf="getflag()">
+        <mat-icon matBadge="" matBadgeColor="warn">shopping_cart</mat-icon>
+          <span class="cdk-visually-hidden">
+          </span>
+      </div>
     </mat-toolbar>
   </div>
   
@@ -41,16 +39,16 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-button>
-          <div class="demo-section">
-            <mat-icon matBadge="" matBadgeColor="warn">shopping_cart</mat-icon>
-              <span class="cdk-visually-hidden">
-              </span>
-          </div>
-        </button>
-        <button mat-menu-item routerLink="productos">Productos</button>
-        <button mat-menu-item routerLink="registro">Registro</button>
-        <button mat-menu-item routerLink="login">Iniciar sesion</button>
+        <div class="demo-section">
+          <mat-icon matBadge="" matBadgeColor="warn" *ngIf="getflag()">shopping_cart</mat-icon>
+            <span class="cdk-visually-hidden">
+            </span>
+        </div>
+        <button mat-menu-item routerLink="productos" *ngIf="getflag()">Productos</button>
+
+        <button mat-menu-item routerLink="registro" *ngIf="!getflag()">Registro</button>
+        <button mat-menu-item routerLink="login" *ngIf="!getflag()">Iniciar sesion</button>  
+        <button mat-menu-item routerLink="login" *ngIf="getflag()" (click)="cerrarSesion()">Cerrar Sesion</button>
       </mat-menu>
     </mat-toolbar>
   </div>
