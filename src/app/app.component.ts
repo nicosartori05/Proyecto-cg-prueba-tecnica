@@ -10,8 +10,16 @@ import { AutenticacionService } from './servicios/autenticacion.service';
 export class AppComponent {
   title = 'prueba-tecnica';
 
-  constructor(private productosService: ProductosService) {
-    
+constructor(private productosService: ProductosService,
+           private authService: AutenticacionService) {
+
+}
+  getflag(){
+    return this.authService.flagAutenticacion;
+  }
+  cerrarSesion(){
+    this.authService.flagAutenticacion = false;
+    console.log("Cierre de sesion")
   }
   getCarritoCompras(): number {
     return this.productosService.getCarritoCompras();

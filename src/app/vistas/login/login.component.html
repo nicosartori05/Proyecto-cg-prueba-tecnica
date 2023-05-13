@@ -1,1 +1,18 @@
-<p>login works!</p>
+<h2>Iniciar sesión</h2>
+<p>Complete con sus datos para iniciar sesion.</p>
+<form novalidate (submit)="iniciarSesion()" #formulario="ngForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" name="emailUsuario" [(ngModel)]="emailUsuario" required #emailUsuarioInput="ngModel">
+        <mat-error *ngIf="emailUsuarioInput.invalid && (emailUsuarioInput.dirty || emailUsuarioInput.touched)">El email de usuario es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" name="contrasena" [(ngModel)]="contrasena" required #contrasenaInput="ngModel">
+        <mat-error *ngIf="contrasenaInput.invalid && (contrasenaInput.dirty || contrasenaInput.touched)">La contraseña es requerida</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid">Iniciar sesión</button>
+    <button mat-raised-button color="primary" type="submit" (click)="registro()">registrarse</button>
+</form>
