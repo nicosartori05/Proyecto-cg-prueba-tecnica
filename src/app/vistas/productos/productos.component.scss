@@ -68,10 +68,10 @@ ul{
 } 
 @media only screen and (min-width: 769px){
    section{
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
     padding: 1rem 2rem;
+   }
+   #selectSubCategoria{
+    width: 50%;
    }
     h3{
         font-weight: 500;
