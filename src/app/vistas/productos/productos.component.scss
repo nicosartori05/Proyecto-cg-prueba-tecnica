@@ -1,0 +1,104 @@
+ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.card mat-card-actions{
+    z-index: 0;
+}
+.card mat-card-content{
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+.card img{
+    padding-top: 1rem;
+    width: 60%;
+}
+@media only screen and (min-width: 320px) and (max-width: 560px){
+    h3{
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+    #menuFiltro{
+        width:100%;
+        margin: 1rem auto;
+    }
+
+    .card{
+        margin: 1.5rem auto;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card img{
+        width: 60%;
+    }
+
+}  
+@media only screen and (min-width: 561px) and (max-width: 768px){
+    h3{
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+    #menuFiltro{
+        width:100%;
+        margin: 1rem auto;
+    }
+    ul li{
+        width: 40%;
+        margin: 1rem;
+    }
+    .card{
+        margin: 1.5rem auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card img{
+        width: 60%;
+    }
+
+} 
+@media only screen and (min-width: 769px){
+   section{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 1rem 2rem;
+   }
+    h3{
+        font-weight: 500;
+        font-size: 2rem;
+    }
+    #menuFiltro{
+        width: 100%;
+        margin: auto;
+    }
+    #menuFiltro mat-form-field{
+        width: 50%;
+    }
+    ul li{
+        width: 30%;
+        margin: 1rem;
+    }
+    .card{
+        margin: 1.5rem auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card img{
+        margin: 2rem;
+        width: 60%;
+        text-align: center;
+    }
+
+}  
