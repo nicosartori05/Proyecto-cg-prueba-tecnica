@@ -13,8 +13,8 @@
       <button mat-button routerLink="login" *ngIf="!getflag()">Iniciar sesion</button>  
       <button mat-button routerLink="login" *ngIf="getflag()" (click)="cerrarSesion()">Cerrar Sesion</button>
       <button mat-button routerLink="productos" *ngIf="getflag()">Productos</button>
-      <button mat-button>
-        <div class="demo-section" *ngIf="getflag()">
+      <button mat-button *ngIf="getflag()">
+        <div class="demo-section">
           <mat-icon [matBadge]="getCarritoCompras()" matBadgeColor="warn">shopping_cart</mat-icon>
             <span class="cdk-visually-hidden">
             </span>
